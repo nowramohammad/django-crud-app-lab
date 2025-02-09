@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food List</title>
+    <link rel="stylesheet" href="{% static 'my_app/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Food List</h1>
+    </header>
+    <nav>
+        <a href="{% url 'home' %}">Home</a> |
+        <a href="{% url 'food_create' %}">Add New Food</a>
+    </nav>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for food in foods %}
+                <tr>
+                    <td><a href="{% url 'food_detail' food.pk %}">{{ food.name }}</a></td>
+                    <td>{{ food.description }}</td>
+                    <td>${{ food.price }}</td>
+                    <td>
+                        <a href="{% url 'food_update' food.pk %}">Edit</a> |
+                        <a href="{% url 'food_delete' food.pk %}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

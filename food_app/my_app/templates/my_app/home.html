@@ -1,0 +1,28 @@
+
+Copy
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food App - Home</title>
+    <link rel="stylesheet" href="{% static 'my_app/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Food App!</h1>
+    </header>
+    <nav>
+        {% if user.is_authenticated %}
+            <p>Hello, {{ user.username }}!</p>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a> |
+            <a href="{% url 'signup' %}">Sign Up</a>
+        {% endif %}
+        <a href="{% url 'food_list' %}">View All Foods</a> |
+        <a href="{% url 'food_create' %}">Add New Food</a>
+    </nav>
+</body>
+</html>
