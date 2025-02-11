@@ -21,7 +21,7 @@ header h1 {
 }
 
 nav {
-    background-color: #333;
+    background-color: #0b5404;
     padding: 10px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -137,7 +137,7 @@ table tr:hover {
 }
 
 .button.delete {
-    background-color: #f44336; /* Red */
+    background-color: #fa1f0f; /* Red */
 }
 
 .button.delete:hover {
